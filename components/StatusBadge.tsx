@@ -7,7 +7,7 @@ const config: Record<
 > = {
   active: {
     label: "LIVE",
-    className: "bg-live text-white",
+    className: "bg-coralDeep text-white",
     icon: <span className="h-2 w-2 animate-pulse rounded-full bg-white" />,
   },
   idle: {

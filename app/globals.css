@@ -7,7 +7,12 @@
     font-size: 16px;
   }
   body {
-    @apply bg-canvas text-ink font-sans;
+    @apply bg-canvas text-ink font-sans transition-colors duration-200 dark:bg-canvasDark dark:text-paper;
+  }
+  h1,
+  h2,
+  h3 {
+    @apply font-display;
   }
   /* Visible focus ring on every interactive element, not just mouse hover */
   a:focus-visible,

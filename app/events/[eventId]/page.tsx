@@ -107,27 +107,27 @@ export default function EventSetupPage({
     }
   }
 
-  if (!event) return <div className="p-6 text-upnext">Loading…</div>;
+  if (!event) return <div className="p-6 text-upnext dark:text-mutedDark">Loading…</div>;
 
   return (
     <div className="mx-auto max-w-3xl px-4 py-8">
       <div className="mb-6 flex items-center justify-between">
         <div>
           <h1 className="text-2xl font-bold">{event.name}</h1>
-          <p className="text-sm text-upnext capitalize">
+          <p className="text-sm text-upnext dark:text-mutedDark capitalize">
             {event.format.replace("_", " ")}
           </p>
         </div>
         <Link
           href={`/events/${params.eventId}/leaderboard`}
-          className="tap-target rounded-lg bg-surface px-4 py-2 text-sm font-semibold shadow-card"
+          className="tap-target rounded-lg bg-surface dark:bg-surfaceDark px-4 py-2 text-sm font-semibold shadow-card"
         >
           Leaderboard
         </Link>
       </div>
 
       {/* Add players */}
-      <section className="mb-8 rounded-card bg-surface p-4 shadow-card">
+      <section className="mb-8 rounded-card bg-surface dark:bg-surfaceDark p-4 shadow-card">
         <h2 className="mb-3 font-semibold">Players ({players.length})</h2>
         <form onSubmit={addGuest} className="mb-4 flex gap-2">
           <input
@@ -159,13 +159,13 @@ export default function EventSetupPage({
             </button>
           ))}
         </div>
-        <p className="mt-2 text-xs text-upnext">
+        <p className="mt-2 text-xs text-upnext dark:text-mutedDark">
           Tap 4 players to form a match (2 vs 2), then pick a court below.
         </p>
       </section>
 
       {/* Assign to court */}
-      <section className="mb-8 rounded-card bg-surface p-4 shadow-card">
+      <section className="mb-8 rounded-card bg-surface dark:bg-surfaceDark p-4 shadow-card">
         <div className="mb-3 flex items-center justify-between">
           <h2 className="font-semibold">Assign match</h2>
           <button
@@ -206,10 +206,10 @@ export default function EventSetupPage({
             <Link
               key={c.id}
               href={`/court/${c.id}`}
-              className="rounded-card bg-surface p-4 shadow-card"
+              className="rounded-card bg-surface dark:bg-surfaceDark p-4 shadow-card"
             >
               <p className="font-semibold">{c.label}</p>
-              <p className="text-sm capitalize text-upnext">{c.status}</p>
+              <p className="text-sm capitalize text-upnext dark:text-mutedDark">{c.status}</p>
             </Link>
           ))}
         </div>

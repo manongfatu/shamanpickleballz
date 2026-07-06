@@ -155,12 +155,16 @@ export default function ScorerPage({
   }
 
   if (!court || !scorerSessionId) {
-    return <div className="p-6 text-center text-upnext">Loading…</div>;
+    return (
+      <div className="p-6 text-center text-upnext dark:text-mutedDark">
+        Loading…
+      </div>
+    );
   }
 
   if (!game) {
     return (
-      <div className="p-6 text-center text-upnext">
+      <div className="p-6 text-center text-upnext dark:text-mutedDark">
         No active game on this court yet.
       </div>
     );
@@ -170,7 +174,7 @@ export default function ScorerPage({
 
   return (
     <div className="mx-auto flex min-h-[calc(100vh-4rem)] max-w-md flex-col px-4 py-6">
-      <div className="mb-2 flex items-center justify-between text-sm text-upnext">
+      <div className="mb-2 flex items-center justify-between text-sm text-upnext dark:text-mutedDark">
         <span>{court.label}</span>
         <span>{syncing ? "Syncing…" : "Synced"}</span>
       </div>
@@ -178,17 +182,21 @@ export default function ScorerPage({
       <div className="mb-6 grid grid-cols-2 gap-4">
         <div className="text-center">
           <p className="mb-2 truncate text-sm font-medium">{teamAName}</p>
-          <p className="text-7xl font-extrabold tabular-nums">{game.score_a}</p>
+          <p className="font-display text-7xl font-extrabold tabular-nums">
+            {game.score_a}
+          </p>
         </div>
         <div className="text-center">
           <p className="mb-2 truncate text-sm font-medium">{teamBName}</p>
-          <p className="text-7xl font-extrabold tabular-nums">{game.score_b}</p>
+          <p className="font-display text-7xl font-extrabold tabular-nums">
+            {game.score_b}
+          </p>
         </div>
       </div>
 
       {gameOver ? (
-        <div className="rounded-card bg-surface p-6 text-center shadow-card">
-          <p className="text-lg font-bold">
+        <div className="rounded-card bg-surface p-6 text-center shadow-card dark:bg-surfaceDark dark:shadow-cardDark">
+          <p className="font-display text-lg font-bold">
             {game.winner === "a" ? teamAName : teamBName} wins!
           </p>
         </div>

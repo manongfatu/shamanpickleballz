@@ -17,7 +17,7 @@ export default function BottomNav() {
 
   return (
     <nav
-      className="fixed bottom-0 left-0 right-0 z-40 flex justify-around border-t border-black/5 bg-surface md:hidden"
+      className="fixed bottom-0 left-0 right-0 z-40 flex justify-around border-t border-black/5 bg-surface dark:border-white/10 dark:bg-surfaceDark md:hidden"
       aria-label="Primary"
     >
       {tabs.map((tab) => {
@@ -28,7 +28,9 @@ export default function BottomNav() {
             href={tab.href}
             className={clsx(
               "tap-target flex flex-1 flex-col items-center justify-center gap-0.5 py-2 text-xs",
-              active ? "text-action font-semibold" : "text-upnext"
+              active
+                ? "font-semibold text-action dark:text-coral"
+                : "text-upnext dark:text-mutedDark"
             )}
           >
             <span aria-hidden className="text-lg leading-none">

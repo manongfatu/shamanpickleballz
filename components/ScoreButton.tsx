@@ -16,10 +16,10 @@ export default function ScoreButton({
       onClick={onClick}
       disabled={disabled}
       className={clsx(
-        "tap-target w-full rounded-card py-6 text-xl font-bold shadow-card transition active:scale-[0.98] disabled:opacity-40",
+        "tap-target w-full rounded-card py-6 text-xl font-bold shadow-card transition active:scale-[0.98] disabled:opacity-40 dark:shadow-cardDark",
         variant === "primary"
           ? "bg-action text-white hover:brightness-110"
-          : "bg-gray-100 text-ink hover:bg-gray-200"
+          : "bg-surfaceAlt text-ink hover:brightness-95 dark:bg-surfaceAltDark dark:text-paper"
       )}
     >
       {label}

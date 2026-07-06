@@ -93,9 +93,11 @@ export default function LivePage() {
 
   return (
     <div className="mx-auto max-w-5xl px-4 py-8">
-      <h1 className="mb-6 text-2xl font-bold">Live Scores</h1>
+      <h1 className="mb-6 font-display text-2xl font-bold">Live Scores</h1>
       {courts.length === 0 ? (
-        <p className="text-upnext">No courts yet. Create an event to get started.</p>
+        <p className="text-upnext dark:text-mutedDark">
+          No courts yet. Create an event to get started.
+        </p>
       ) : (
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {courts.map((c) => (

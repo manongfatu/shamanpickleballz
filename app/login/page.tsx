@@ -12,9 +12,11 @@ export default function LoginPage() {
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     setError(null);
+    const siteUrl =
+      process.env.NEXT_PUBLIC_SITE_URL ?? window.location.origin;
     const { error } = await supabase.auth.signInWithOtp({
       email,
-      options: { emailRedirectTo: `${window.location.origin}/` },
+      options: { emailRedirectTo: `${siteUrl}/auth/callback` },
     });
     if (error) setError(error.message);
     else setSent(true);
@@ -22,15 +24,15 @@ export default function LoginPage() {
 
   return (
     <div className="mx-auto max-w-sm px-4 py-16">
-      <h1 className="mb-2 text-2xl font-bold">Log in</h1>
-      <p className="mb-6 text-sm text-upnext">
+      <h1 className="mb-2 font-display text-2xl font-bold">Log in</h1>
+      <p className="mb-6 text-sm text-upnext dark:text-mutedDark">
         We'll email you a magic link — no password needed.
       </p>
 
       {sent ? (
-        <div className="rounded-card bg-surface p-4 shadow-card">
+        <div className="rounded-card bg-surface p-4 shadow-card dark:bg-surfaceDark dark:shadow-cardDark">
           <p className="font-medium">Check your email</p>
-          <p className="mt-1 text-sm text-upnext">
+          <p className="mt-1 text-sm text-upnext dark:text-mutedDark">
             We sent a login link to {email}.
           </p>
         </div>
@@ -46,21 +48,21 @@ export default function LoginPage() {
               required
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className="tap-target w-full rounded-lg border border-black/10 px-4 py-3 text-base"
+              className="tap-target w-full rounded-lg border border-black/10 bg-surface px-4 py-3 text-base dark:border-white/15 dark:bg-surfaceDark dark:text-paper"
               placeholder="you@example.com"
             />
           </div>
-          {error && <p className="text-sm text-live">{error}</p>}
+          {error && <p className="text-sm text-red-600 dark:text-red-400">{error}</p>}
           <button
             type="submit"
-            className="tap-target w-full rounded-lg bg-action py-3 font-semibold text-white hover:brightness-110"
+            className="tap-target w-full rounded-full bg-action py-3 font-semibold text-white hover:brightness-110"
           >
             Send magic link
           </button>
         </form>
       )}
 
-      <p className="mt-6 text-center text-sm text-upnext">
+      <p className="mt-6 text-center text-sm text-upnext dark:text-mutedDark">
         Just here to play or watch? You don't need an account —{" "}
         <a href="/scan" className="underline">
           scan a court QR

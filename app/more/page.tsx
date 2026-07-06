@@ -7,19 +7,19 @@ export default function MorePage() {
       <div className="space-y-3">
         <Link
           href="/login"
-          className="block rounded-card bg-surface p-4 font-medium shadow-card"
+          className="block rounded-card bg-surface dark:bg-surfaceDark p-4 font-medium shadow-card"
         >
           Log in / Sign up
         </Link>
         <Link
           href="/events/new"
-          className="block rounded-card bg-surface p-4 font-medium shadow-card"
+          className="block rounded-card bg-surface dark:bg-surfaceDark p-4 font-medium shadow-card"
         >
           Create an event
         </Link>
         <Link
           href="/scan"
-          className="block rounded-card bg-surface p-4 font-medium shadow-card"
+          className="block rounded-card bg-surface dark:bg-surfaceDark p-4 font-medium shadow-card"
         >
           Scan to score
         </Link>

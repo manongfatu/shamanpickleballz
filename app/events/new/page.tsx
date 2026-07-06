@@ -92,7 +92,7 @@ export default function NewEventPage() {
           />
         </div>
 
-        {error && <p className="text-sm text-live">{error}</p>}
+        {error && <p className="text-sm text-red-600 dark:text-red-400">{error}</p>}
 
         <button
           type="submit"

@@ -23,24 +23,24 @@ export default function EventsPage() {
         <h1 className="text-2xl font-bold">Tournaments</h1>
         <Link
           href="/events/new"
-          className="tap-target rounded-lg bg-gold px-4 py-2 font-semibold text-navy"
+          className="tap-target rounded-full bg-coralDeep px-4 py-2 font-semibold text-white hover:brightness-110"
         >
           + New event
         </Link>
       </div>
 
       {events.length === 0 ? (
-        <p className="text-upnext">No events yet.</p>
+        <p className="text-upnext dark:text-mutedDark">No events yet.</p>
       ) : (
         <div className="grid gap-3">
           {events.map((e) => (
             <Link
               key={e.id}
               href={`/events/${e.id}`}
-              className="rounded-card bg-surface p-4 shadow-card"
+              className="rounded-card bg-surface dark:bg-surfaceDark p-4 shadow-card"
             >
               <p className="font-semibold">{e.name}</p>
-              <p className="text-sm capitalize text-upnext">
+              <p className="text-sm capitalize text-upnext dark:text-mutedDark">
                 {e.format.replace("_", " ")} · {e.status}
               </p>
             </Link>

@@ -43,7 +43,7 @@ export default function LeaderboardPage({
   return (
     <div className="mx-auto max-w-2xl px-4 py-8">
       <h1 className="mb-6 text-2xl font-bold">Leaderboard</h1>
-      <div className="overflow-hidden rounded-card bg-surface shadow-card">
+      <div className="overflow-hidden rounded-card bg-surface dark:bg-surfaceDark shadow-card">
         <table className="w-full text-left text-sm">
           <thead className="bg-navy text-white">
             <tr>
@@ -74,7 +74,7 @@ export default function LeaderboardPage({
             })}
             {rows.length === 0 && (
               <tr>
-                <td colSpan={6} className="px-4 py-8 text-center text-upnext">
+                <td colSpan={6} className="px-4 py-8 text-center text-upnext dark:text-mutedDark">
                   No results yet.
                 </td>
               </tr>

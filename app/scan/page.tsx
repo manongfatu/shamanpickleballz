@@ -75,7 +75,7 @@ function ScanContent() {
   return (
     <div className="mx-auto max-w-sm px-4 py-12 text-center">
       <h1 className="mb-2 text-2xl font-bold">Scan to Score</h1>
-      <p className="mb-6 text-sm text-upnext">
+      <p className="mb-6 text-sm text-upnext dark:text-mutedDark">
         Point your camera at the court's QR code to become its scorer.
       </p>
 
@@ -93,7 +93,7 @@ function ScanContent() {
         </button>
       )}
 
-      {error && <p className="mt-4 text-sm text-live">{error}</p>}
+      {error && <p className="mt-4 text-sm text-red-600 dark:text-red-400">{error}</p>}
     </div>
   );
 }
@@ -101,7 +101,7 @@ function ScanContent() {
 export default function ScanPage() {
   return (
     <Suspense
-      fallback={<div className="p-6 text-center text-upnext">Loading…</div>}
+      fallback={<div className="p-6 text-center text-upnext dark:text-mutedDark">Loading…</div>}
     >
       <ScanContent />
     </Suspense>
