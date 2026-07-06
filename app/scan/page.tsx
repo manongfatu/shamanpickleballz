@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { Suspense, useEffect, useRef, useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 
 async function claimToken(token: string) {
@@ -12,7 +12,7 @@ async function claimToken(token: string) {
   return { ok: res.ok, data: await res.json() };
 }
 
-export default function ScanPage() {
+function ScanContent() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const [error, setError] = useState<string | null>(null);
@@ -95,5 +95,15 @@ export default function ScanPage() {
 
       {error && <p className="mt-4 text-sm text-live">{error}</p>}
     </div>
+  );
+}
+
+export default function ScanPage() {
+  return (
+    <Suspense
+      fallback={<div className="p-6 text-center text-upnext">Loading…</div>}
+    >
+      <ScanContent />
+    </Suspense>
   );
 }
